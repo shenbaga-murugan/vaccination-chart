@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Vaccines</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <script src="../static/js/jquery-3.5.1.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="infoBox" style="margin-top:50px" class="mainbox col-md-9 col-md-offset-1 col-sm-11 col-sm-offset-1">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="panel-title">All Vaccines</div>
+        </div>
+    </div>
+    <div class="panel-body" >
+        <div class="row">
+           <div class="col-sm-2" style="background-color:SkyBlue"><b>Vaccine Name</b></div>
+           <div class="col-sm-2" style="background-color:SkyBlue"><b>Schedule</b></div>
+           <div class="col-sm-2" style="background-color:SkyBlue"><b>Route</b></div>
+           <div class="col-sm-2" style="background-color:SkyBlue"><b>Site</b></div>
+           <div class="col-sm-2" style="background-color:SkyBlue"><b>Approx. Cost</b></div>
+           <div class="col-sm-2" style="background-color:SkyBlue"><b>Remarks</b></div>
+       </div>
+       <div class="row" th:each="vaccine: ${vaccineList}">
+       	   <div class="col-sm-2" th:text="${vaccine.name}"></div>
+           <div class="col-sm-2" th:text="${vaccine.fromDays} + ' days to ' + ${vaccine.toDays} + ' days'"></div>
+           <div class="col-sm-2" th:text="${vaccine.route}"></div>
+           <div class="col-sm-2" th:text="${vaccine.site}"></div>
+           <div class="col-sm-2" th:text="${vaccine.approxCost}"></div>
+           <div class="col-sm-2" th:text="${vaccine.comments}"></div>
+       </div>
+	</div>
+	<div class="col-md-12">
+        <a id="btn-generate-report" class="btn btn-primary" th:href="@{/vaccine/add.do}">Add New Vaccine</a>
+    </div>
+</div>
+</body>
+</html>

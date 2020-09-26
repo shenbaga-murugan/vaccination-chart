@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Person Information</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <script src="../static/js/jquery-3.5.1.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="scheduleBox" style="margin-top:50px" class="mainbox col-md-10 col-md-offset-1 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="panel-title">Vaccination Schedule</div>
+        </div>
+        <div class="panel-body" >
+            <div class="row">
+                <div class="col-sm-3"><h4>Vaccine</h4></div>
+                <div class="col-sm-3"><h4>Schedule</h4></div>
+                <div class="col-sm-2"><h4>Dose</h4></div>
+                <div class="col-sm-2"><h4>Route</h4></div>
+                <div class="col-sm-2"><h4>Site</h4></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5" style="background-color:SkyBlue">&nbsp;</div>
+                <div class="col-sm-7" style="background-color:SkyBlue"><b style="color:Maroon">Infants (Age less than 1 year)</b></div>
+            </div>
+            <div class="row" th:each="infantVaccine: ${infantVaccines}">
+                <div class="col-sm-3" th:text="${infantVaccine.name}">Vaccine</div>
+                <div class="col-sm-3" th:text="${infantVaccines.schedule}">Schedule</div>
+                <div class="col-sm-2" th:text="${infantVaccines.dose}">Dose</div>
+                <div class="col-sm-2" th:text="${infantVaccines.route}">Route</div>
+                <div class="col-sm-2" th:text="${infantVaccines.site}">Site</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5" style="background-color:SkyBlue">&nbsp;</div>
+                <div class="col-sm-7" style="background-color:SkyBlue"><b style="color:Maroon">Children (1 year and above)</b></div>
+            </div>
+            <div class="row" th:each="childVaccine: ${childVaccines}">
+                <div class="col-sm-3" th:text="${childVaccine.name}">Vaccine</div>
+                <div class="col-sm-3" th:text="${childVaccine.schedule}">Schedule</div>
+                <div class="col-sm-2" th:text="${childVaccine.dose}">Dose</div>
+                <div class="col-sm-2" th:text="${childVaccine.route}">Route</div>
+                <div class="col-sm-2" th:text="${childVaccine.site}">Site</div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.shenba</groupId>
+    <artifactId>vaccination-chart</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Vaccination Chart</name>
+    <description>An application to generate vaccination chart for children</description>
+    <modules>
+        <module>vaccination-chart-web</module>
+        <module>vaccination-chart-service</module>
+        <module>vaccination-chart-dao</module>
+    </modules>
+    <properties>
+        <spring.web.version>5.2.8.RELEASE</spring.web.version>
+        <spring.context.version>5.2.8.RELEASE</spring.context.version>
+        <spring.mongo.version>3.0.3.RELEASE</spring.mongo.version>
+        <thymeleaf.version>3.0.11.RELEASE</thymeleaf.version>
+        <javax.servlet.version>4.0.1</javax.servlet.version>
+        <maven.compiler.version>3.8.1</maven.compiler.version>
+        <maven.war.plugin.version>3.3.1</maven.war.plugin.version>
+        <lombok.version>1.18.12</lombok.version>
+        <mongo.driver.version>4.1.0</mongo.driver.version>
+        <java.version>1.8</java.version>
+    </properties>
+
+</project>
