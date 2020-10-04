@@ -16,27 +16,31 @@
             <div class="panel-title">All Vaccines</div>
         </div>
     </div>
-    <div class="panel-body" >
-        <div class="row">
-           <div class="col-sm-2" style="background-color:SkyBlue"><b>Vaccine Name</b></div>
-           <div class="col-sm-2" style="background-color:SkyBlue"><b>Schedule</b></div>
-           <div class="col-sm-2" style="background-color:SkyBlue"><b>Route</b></div>
-           <div class="col-sm-2" style="background-color:SkyBlue"><b>Site</b></div>
-           <div class="col-sm-2" style="background-color:SkyBlue"><b>Approx. Cost</b></div>
-           <div class="col-sm-2" style="background-color:SkyBlue"><b>Remarks</b></div>
-       </div>
-       <div class="row row-striped" th:each="vaccine: ${vaccineList}">
-       	   <div class="col-sm-2" th:text="${vaccine.name}"></div>
-           <div class="col-sm-2" th:text="${vaccine.fromDays} + ' days to ' + ${vaccine.toDays} + ' days'"></div>
-           <div class="col-sm-2" th:text="${vaccine.route}"></div>
-           <div class="col-sm-2" th:text="${vaccine.site}"></div>
-           <div class="col-sm-2" th:text="${vaccine.approxCost}"></div>
-           <div class="col-sm-2" th:text="${vaccine.comments}"></div>
-       </div>
-	</div>
+    <table class="table table-striped">
+        <thead>
+    		<tr>
+    			<th scope="col">Vaccine Name</th>
+    			<th scope="col">Schedule</th>
+    			<th scope="col">Route</th>
+    			<th scope="col">Site</th>
+    			<th scope="col" class="text-nowrap">Approx. Cost</th>
+    			<th scope="col">Remarks</th>
+    		</tr>
+    	</thead>
+    	<tbody>
+    		<tr th:each="vaccine: ${vaccineList}">
+    			<td th:text="${vaccine.name}"></td>
+    			<td th:text="${vaccine.fromDays} + ' days to ' + ${vaccine.toDays} + ' days'"></td>
+    			<td th:text="${vaccine.route}"></td>
+    			<td th:text="${vaccine.site}"></td>
+    			<td th:text="${vaccine.approxCost}"></td>
+    			<td th:text="${vaccine.comments}"></td>
+    		</tr>
+    	</tbody>
+    </table>
 	<div class="col-md-12">
         <a id="btn-generate-report" class="btn btn-primary" th:href="@{/vaccine/add.do}">Add New Vaccine</a>
-    </div>
+    </div><br/>
 </div>
 </body>
 </html>

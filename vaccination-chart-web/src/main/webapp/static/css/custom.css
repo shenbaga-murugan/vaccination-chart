@@ -1,7 +1,7 @@
-.row-striped:nth-of-type(odd){
-  background-color: #efefef;
-}
-
-.row-striped:nth-of-type(even){
-  background-color: #bfbfbf;
-}
+.table-striped>tbody>tr:nth-child(odd)>td{
+   background-color: #ccccff;
+ }
+ .table-striped>thead>tr>th{
+ 	background-color: #1f1f7a;
+ 	color: #ffffff;
+ }

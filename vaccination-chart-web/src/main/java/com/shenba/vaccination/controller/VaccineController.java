@@ -1,5 +1,9 @@
 package com.shenba.vaccination.controller;
 
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +22,8 @@ import com.shenba.vaccination.service.VaccineService;
 @Controller
 @RequestMapping(path = "/vaccine")
 public class VaccineController {
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(VaccineController.class);
 
     @Autowired
     private VaccineService vaccineService;
@@ -25,6 +31,7 @@ public class VaccineController {
     @PostMapping(path = "/save.do")
     public ModelAndView addVaccine(@ModelAttribute("vaccine") Vaccine vaccine) {
     	vaccineService.saveVaccine(vaccine);
+    	LOGGER.info("Saved {} vaccine to DB.", vaccine);
     	return new ModelAndView("redirect:/vaccine/list.do");
     }
 
@@ -36,6 +43,8 @@ public class VaccineController {
     
     @GetMapping(path = "/list.do")
     public String getAllVaccines(Model model) {
+    	List<Vaccine> vaccineList = vaccineService.getVaccines();
+    	LOGGER.info("Fetched total of {} vaccines from DB.", vaccineList.size());
     	model.addAttribute("vaccineList", vaccineService.getVaccines());
         return "vaccineList";
     }
