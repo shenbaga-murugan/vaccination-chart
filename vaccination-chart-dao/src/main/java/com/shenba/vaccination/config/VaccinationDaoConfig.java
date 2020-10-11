@@ -24,7 +24,7 @@ public class VaccinationDaoConfig extends AbstractMongoClientConfiguration {
     }
 
     @Override
-    public Collection getMappingBasePackages() {
+    public Collection<String> getMappingBasePackages() {
         return Collections.singleton("com.shenba.vaccination.domain");
     }
 
